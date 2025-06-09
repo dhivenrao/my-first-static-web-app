@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /here's the flag
 Disallow: /idk??/
-Disallow: /maybe_maybenot
+Disallow: /maybe_maybe-not(hehe)
