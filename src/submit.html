@@ -17,21 +17,31 @@
     <p id="result" style="margin-top: 20px;"></p>
   </main>
 
-  <script>
-    document.getElementById("flagForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const flag = document.getElementById("flag").value.trim();
-      const result = document.getElementById("result");
+<script>
+  document.getElementById("flagForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-      if (flag === "Ra0CTF{now_wasn't_that_easy:)}") {
-        result.style.color = "lime";
-        result.textContent = `✅ Correct flag, ${name}🥳🥳! Welcome to the leaderboard... maybe.`;
-      } else {
-        result.style.color = "red";
-        result.textContent = `❌ Nope, try again ${name}.`;
+    const name = document.getElementById("name").value.trim();
+    const flag = document.getElementById("flag").value.trim();
+    const result = document.getElementById("result");
+
+    if (flag === "Ra0CTF{now_wasn't_that_easy:)}") {
+      // Load existing from localStorage
+      let hackers = JSON.parse(localStorage.getItem("hackers")) || [];
+
+      // Prevent duplicate names (optional)
+      if (!hackers.includes(name)) {
+        hackers.push(name);
+        localStorage.setItem("hackers", JSON.stringify(hackers));
       }
-    });
-  </script>
+
+      result.style.color = "lime";
+      result.textContent = `✅ Correct flag, ${name}! Welcome to the leaderboard... maybe.`;
+    } else {
+      result.style.color = "red";
+      result.textContent = `❌ Nope, try again ${name}.`;
+    }
+  });
+</script>
 </body>
 </html>
