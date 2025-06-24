@@ -13,19 +13,28 @@
     <a class="btn" href="index.html">⬅ Back to Home</a>
   </main>
 
-  <script>
-    const hackerList = document.getElementById("hackerList");
-    const hackers = JSON.parse(localStorage.getItem("hackers")) || [];
+<script>
+  const hackerList = document.getElementById("hackerList");
+  const hackers = JSON.parse(localStorage.getItem("hackers")) || [];
 
-    if (hackers.length === 0) {
-      hackerList.innerHTML = "<li>No hackers yet... be the first!</li>";
-    } else {
-      hackers.forEach((name, index) => {
-        const li = document.createElement("li");
-        li.textContent = `#${index + 1} ${name}`;
-        hackerList.appendChild(li);
-      });
-    }
-  </script>
+  if (hackers.length === 0) {
+    hackerList.innerHTML = "<li>No hackers yet... be the first!</li>";
+  } else {
+    hackers.forEach((name, index) => {
+      const li = document.createElement("li");
+
+      // Apply rank-based decoration
+      let badge = "";
+      if (index === 0) badge = "👑";
+      else if (index === 1) badge = "🥈";
+      else if (index === 2) badge = "🥉";
+      else badge = `#${index + 1}`;
+
+      li.innerHTML = `<span class="rank">${badge}</span> <span class="hacker">${name}</span>`;
+      hackerList.appendChild(li);
+    });
+  }
+</script>
+
 </body>
 </html>
