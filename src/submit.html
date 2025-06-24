@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <title>Submit Your Flag</title>
+</head>
+<body>
+  <main>
+    <h1>🚩 Submit Your Flag</h1>
+    <form id="flagForm">
+      <input type="text" id="name" placeholder="Your Name" required><br><br>
+      <input type="text" id="flag" placeholder="Enter Flag" required><br><br>
+      <button type="submit" class="btn">Check Flag</button>
+    </form>
+    <p id="result" style="margin-top: 20px;"></p>
+  </main>
+
+  <script>
+    document.getElementById("flagForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const flag = document.getElementById("flag").value.trim();
+      const result = document.getElementById("result");
+
+      if (flag === "Ra0CTF{now_wasn't_that_easy:)}") {
+        result.style.color = "lime";
+        result.textContent = `✅ Correct flag, ${name}! Welcome to the leaderboard... maybe.`;
+      } else {
+        result.style.color = "red";
+        result.textContent = `❌ Nope, try again ${name}.`;
+      }
+    });
+  </script>
+</body>
+</html>
