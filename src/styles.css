@@ -70,3 +70,66 @@ footer {
   opacity: 0.8;
   margin-top: 2rem;
 }
+
+form {
+  background-color: #111722;
+  padding: 30px;
+  border: 1px solid #33ff99;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #33ff9970;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+form h1 {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 2px solid #33ff99;
+  border-radius: 5px;
+  background-color: #000;
+  color: #33ff99;
+  outline: none;
+  font-family: 'Courier New', monospace;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #00ffff;
+  box-shadow: 0 0 8px #00ffff66;
+}
+
+button {
+  background-color: #33ff99;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #00cc88;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#result::before {
+  content: "✅ ";
+  display: inline-block;
+  margin-right: 8px;
+  color: lime;
+}
