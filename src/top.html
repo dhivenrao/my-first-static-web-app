@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <title>Top Hackers</title>
+</head>
+<body>
+  <main>
+    <h1>🏆 Top Hackers</h1>
+    <ul id="hackerList"></ul>
+    <a class="btn" href="index.html">⬅ Back to Home</a>
+  </main>
+
+  <script>
+    const hackerList = document.getElementById("hackerList");
+    const hackers = JSON.parse(localStorage.getItem("hackers")) || [];
+
+    if (hackers.length === 0) {
+      hackerList.innerHTML = "<li>No hackers yet... be the first!</li>";
+    } else {
+      hackers.forEach((name, index) => {
+        const li = document.createElement("li");
+        li.textContent = `#${index + 1} ${name}`;
+        hackerList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
